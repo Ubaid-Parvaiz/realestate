@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'profile_details',
     'properties',
     'crispy_forms',
-    'django_filters',
+
     
 ]
 
