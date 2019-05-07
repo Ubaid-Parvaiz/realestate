@@ -1,0 +1,13 @@
+ <div class="dashboard-inner">
+    <h4>Listings</h4>
+    <ul>
+        <li><a href="{% url 'profile_details:property' %}"><i class="flaticon-apartment-1"></i>My Properties</a></li>
+        <li class="active"><a href="{% url 'profile_details:submit' user.pk %}"><i class="flaticon-plus"></i>Submit Property</a></li>
+    </ul>
+    <h4>Account</h4>
+    <ul>
+        <li><a href="{% url 'logout' %}"><i class="flaticon-logout"></i>Logout</a></li>
+    </ul>
+</div>
+
+

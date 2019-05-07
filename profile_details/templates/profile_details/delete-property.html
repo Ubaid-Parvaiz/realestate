@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <div class="container">
+    <h3 class="mt-2">Are you sure that you wanna delete<span style="color: #e20f59;"> "{{ object }}"</span></h3>
+    <input type="submit" value='Delete Property' class="btn btn-danger mb-4">
+    </div>
+</form>
+{% endblock %}

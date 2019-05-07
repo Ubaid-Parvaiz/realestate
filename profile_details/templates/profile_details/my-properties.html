@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Dashboard start -->
+<div class="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-pad">
+                <div class="dashboard-nav d-none d-xl-block d-lg-block">
+                     {% include 'profile_details/side-menu.html' %}
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-pad">
+                <div class="content-area5">
+                    <div class="dashboard-content">
+                      {% include 'profile_details/uper-menu.html' %}
+                        <div class="dashboard-list">
+                            <h3>My Properties List</h3>
+
+                            {% for i in property.all %}
+                            <table class="manage-table">
+                                <tbody>
+                                <tr class="responsive-table">
+                                    <td class="listing-photoo">
+                                        <img src="{{i.images.url }}" class="image-fluid">
+                                    </td>
+                                    <td class="title-container">
+                                        <h2><a href="#">{{i.title}}</a></h2>
+                                        <h5 class="d-none d-xl-block d-lg-block d-md-block"><i class="flaticon-pin"></i>{{i.address}}.{{i.state}}, </h5>
+                                        <h6 class="table-property-price">${{i.price}} / monthly</h6>
+                                    </td>
+                                    <td class="action">
+                                        <a href="{% url 'profile_details:update' i.pk %}"><i class="fa fa-pencil"></i> Edit</a>
+                                        <a href="{% url 'profile_details:delete' i.pk %}" class="delete"><i class="fa fa-remove"></i>Delete</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    <p class="sub-banner-2 text-center">© 2019 Designed and developed by Ubaid Parvaiz</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dashboard end -->
+
+<!-- Full Page Search -->
+<div id="full-page-search">
+    <button type="button" class="close">×</button>
+    <form action="http://themevessel-item.s3-website-us-east-1.amazonaws.com/neer/index.html#">
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-sm button-theme">Search</button>
+    </form>
+</div>
+
+{% endblock %}

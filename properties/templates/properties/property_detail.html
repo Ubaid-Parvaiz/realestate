@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+	<div class="container">
+		<div class="breadcrumb-area">
+			<h1>Properties Detail</h1>
+			<ul class="breadcrumbs">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li class="active">Properties Detail</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Sub Banner end -->
+
+
+<div class="row">
+
+	<div class="col-md-6">
+		<div class="container pt-3 pb-3 pl-2">
+			<img src="{{object.images.url}}" class="img-fluid" style="border-radius: 1%;">
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="container pt-3">
+			<h2>{{object.title}}</h2>
+			<p>{{object.status}}</p>
+			<p>{{object.info}}</p>
+
+			<div class="row">
+				<div class="col-md-4">
+					<h3>{{object.parking.label}}</h3>
+				</div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+			</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<span><p>Dealer name: {{object.dealer_name}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p>Email: {{object.dealer_email}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p>Number: {{object.dealer_number}}</p></span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<span><p><strong>Address: </strong>{{object.address}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p><strong>State: </strong> {{object.state}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p><strong>Pincode: </strong> {{object.code}}</p></span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<span><p><strong>Price: </strong>${{object.price}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p><strong>Rooms: </strong>{{object.rooms}}</p></span>
+			</div>
+			<div class="col-md-4">
+				<span><p><strong>Bathroom: </strong> {{object.bathroom}}</p></span>
+			</div>
+		</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

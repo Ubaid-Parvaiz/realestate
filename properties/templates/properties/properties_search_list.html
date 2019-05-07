@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+	<div class="container">
+		<div class="breadcrumb-area">
+			<h1>Search Results</h1>
+			<ul class="breadcrumbs">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li class="active">Search Results</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Sub Banner end -->
+
+
+  </ul>
+
+{% include 'properties/properties_same.html' %}
+
+
+
+{% endblock %}

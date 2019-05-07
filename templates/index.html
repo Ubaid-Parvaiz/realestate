@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'header.html' %}
+{% load static %}
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+    <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item banner-max-height active">
+                <img class="d-block w-100" src="{% static 'properties/img/banner/banner-2.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
+                    <div class="carousel-content container">
+                        <div class="text-center">
+                            <h3 class="text-uppercase">Find Your Property</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            </p>
+
+                          {% include 'search.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height">
+                <img class="d-block w-100" src="{% static 'properties/img/banner/banner-3.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
+                    <div class="carousel-content container">
+                        <div class="text-center">
+                            <h3 class="text-uppercase">Find Your Property</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            </p>
+                            {% include 'search.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height">
+                <img class="d-block w-100" src="{% static 'properties/img/banner/banner-1.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
+                    <div class="carousel-content container">
+                        <div class="text-center">
+                            <h3 class="text-uppercase">Find Your Property</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            </p>
+                          {% include 'search.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#bannerCarousole" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <a class="carousel-control-next" href="#bannerCarousole" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </a>
+    </div>
+    <div class="container search-options-btn-area">
+        <a class="search-options-btn d-lg-none d-xl-none">
+            <div class="search-options d-none d-xl-block d-lg-block">Search Options</div>
+            <div class="icon"><i class="fa fa-chevron-up"></i></div>
+        </a>
+    </div>
+</div>
+<!-- Banner end -->
+
+
+
+<!-- Featured Properties start -->
+<div class="featured-properties content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Featured Properties</h1>
+            <p>Find your properties in your city</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                {%  for i in most_recent %}
+                <div class="slick-slide-item">
+                    <div class="property-box">
+                        <div class="property-thumbnail">
+                            <a href="{% url 'property:detail' i.pk %}" class="property-img">
+                                <div class="listing-badges">
+                                    <span class="featured">Featured</span>
+                                </div>
+                                <div class="price-box"><span>${{i.price}}</span> Per month</div>
+                                <img class="d-block w-100" src="{{i.images.url}}"  height = "200px" alt="properties">
+                            </a>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="{% url 'property:detail' i.pk %}">{{i.title}}</a>
+                            </h1>
+
+                            <div class="location">
+                                <a href="{% url 'property:detail' i.pk %}">
+                                    <i class="flaticon-pin"></i>{{i.address}}
+                                </a>
+                            </div>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <span>Area</span>{{i.area}} Sqft
+                            </li>
+                            <li>
+                                <span>Beds</span> {{i.rooms}}
+                            </li>
+                            <li>
+                                <span>Baths</span> {{i.bathrooms}}
+                            </li>
+                        </ul>
+                        <div class="footer">
+                            <a href="#">
+                                <i class="flaticon-people"></i> {{i.dealer_name}}
+                            </a>
+                            <span>
+                                <i class="flaticon-calendar"></i>{{i.timestamp | timesince}} ago
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="slick-prev slick-arrow-buton">
+                <i class="fa fa-angle-left"></i>
+            </div>
+            <div class="slick-next slick-arrow-buton">
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured Properties end -->
+
+
+{% endblock %}

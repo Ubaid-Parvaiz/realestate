@@ -1,0 +1,19 @@
+You recieved a message, don,t panic.. keep it normal
+
+The sender,s name is {{user}}
+
+They sender,s number is {{number}}
+
+They sender,s email is {{email}}
+
+The sender,s subject is {{subject_sender}}
+
+This sender's message 
+
+{{message}}
+
+
+Thank You
+
+Regards,
+You,r bot Xingo
