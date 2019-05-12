@@ -28,15 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SEND_GRID_API_KEY = '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'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'ubaidparvaiz'
-EMAIL_HOST_PASSWORD = '.py/r^admin1'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'ubaidparvez4@gmail.com'
-ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Contact email received from my blog'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#SEND_GRID_API_KEY = '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'
+#EMAIL_HOST = 'smtp.sendgrid.net'
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = 'your password'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = 'your email'
+#ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Contact email received from my blog'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 
